@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #e0e0e0;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color:#000000;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border: 1px solid #444;
+            padding: 50px 100px;
+        }
+
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-entry {
+            animation: fadeInSlideUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1.0s; }
+        .delay-6 { animation-delay: 1.2s; }
+
+        h1, h2 {
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h1::after, h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: #ef4444;
+            border-radius: 2px;
+        }
+        h1::after {
+            width: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+       
+        h2::after {
+            left: 0;
+            transform: translateX(0);
+        }
+     
+        footer h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .profile-pic {
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ef4444;
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+        }
+
+        a {
+            color: #f87171;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ef4444;
+            text-decoration: underline;
+        }
+
+        .footer-icon {
+            font-size: 1.8rem;
+            color: #ef4444;
+            transition: transform 0.2s ease-in-out;
+        }
+        .footer-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-pic-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        .profile-pic-section .profile-pic-container {
+            flex-shrink: 0;
+            margin-bottom: 16px;
+        }
+        .profile-pic-section .header-content {
+            width: 100%;
+            text-align: center;
+        }
+        .profile-pic-section h1 {
+            color: #ef4444;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .profile-pic-section p {
+            color: #d1d5db;
+            font-size: 1.125rem;
+        }
+
+        section {
+            margin-bottom: 32px;
+            text-align: left;
+        }
+        section h2 {
+            color: #ef4444;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-align: left; 
+            display: block; 
+        }
+        section p {
+            margin-bottom: 12px;
+        }
+        section ul {
+            list-style-type: disc;
+            list-style-position: outside;
+            padding-left: 20px;
+        }
+        section ul li {
+            margin-bottom: 8px;
+        }
+        section strong {
+            color: #f87171;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #4b5563;
+            margin-top: 32px;
+        }
+        footer h2 {
+            color: #ef4444;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: inline-block; 
+            text-align: center;
+        }
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+        }
+        footer .footer-links a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fca5a5;
+        }
+        footer .footer-links a:hover {
+            color: #ef4444;
+        }
+        footer .footer-links a span {
+            font-size: 0.875rem;
+            margin-top: 4px;
+        }
+        footer .copyright-text {
+            margin-top: 24px;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+       
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+          
+            h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .profile-pic-section .profile-pic-container {
+                margin-bottom: 20px;
+            }
+            section {
+                text-align: center;
+            }
+            section ul {
+                padding-left: 0;
+                list-style-position: inside;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .profile-pic-section {
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 32px;
+            }
+            .profile-pic-section .profile-pic-container {
+                margin-bottom: 0;
+            }
+            .profile-pic-section .header-content {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="profile-pic-section animate-entry delay-1">
+            <div class="profile-pic-container">
+                <img src="myimage.jpg" alt="Your Profile Picture" class="profile-pic">
+            </div>
+            <div class="header-content">
+                <h1>About Me</h1>
+               
+            </div>
+        </header>
+
+        <section id="personal-info" class="animate-entry delay-2">
+            <h2>Personal Information</h2>
+            <p><strong>Name:</strong> NARENDRA REDDY MERUVA</p>
+            <p><strong>Current Study:</strong> Bachelor of Technology in Computer Science</p>
+            <p><strong>College/University:</strong> SRKR Engineering College</p>
+            <p><strong>Registration Number:</strong> 23B91AO5I1</p>
+            <p><strong>Location:</strong> Bhimavaram, Andhra Pradesh, India</p>
+        </section>
+
+        <section id="hobbies" class="animate-entry delay-3">
+            <h2>Hobbies & Interests</h2>
+            <p>Here are some of the activities I enjoy in my free time:</p>
+            <ul>
+                <li><strong>Reading:</strong> Exploring new worlds through fiction and non-fiction.</li>
+                <li><strong>Gaming:</strong> Engaging in strategic and immersive video games.</li>
+                <li><strong>Photography:</strong> Capturing moments and experimenting with visual storytelling.</li>
+                <li><strong>Learning New Skills:</strong> Always keen to expand my knowledge base, especially in tech.</li>
+            </ul>
+        </section>
+
+        <section id="technical-skills" class="animate-entry delay-4">
+            <h2>Technical Skills</h2>
+            <p>My technical expertise includes:</p>
+            <ul>
+                <li><strong>Programming Languages:</strong> C, Python, Java, JavaScript</li>
+                <li><strong>Web Technologies:</strong> HTML, CSS, JavaScript, React, Node.js (basics)</li>
+                <li><strong>Tools & Platforms:</strong> Git, GitHub, VS Code</li>
+                <li><strong>Operating Systems:</strong> Windows, Linux (Ubuntu)</li>
+                <li><strong>Other Skills:</strong> Data Structures & Algorithms, Object-Oriented Programming</li>
+            </ul>
+        </section>
+
+        <footer class="animate-entry delay-6">
+            <h2>Connect With Me</h2>
+            <div class="footer-links">
+                <a href="tel:+919059017447" aria-label="Mobile Number">
+                    <i class="fas fa-phone footer-icon"></i>
+                    <span>+91 90590 17447</span>
+                </a>
+                <a href="mailto:narendrareddymeruva@gmail.com" aria-label="Gmail">
+                    <i class="fas fa-envelope footer-icon"></i>
+                    <span>narendrareddymeruva@gmail.com</span>
+                </a>
+                <a href="" target="_blank" aria-label="Telegram">
+                    <i class="fab fa-telegram footer-icon"></i>
+                    <span>@narendrareddy</span>
+                </a>
+            </div>
+            <p class="copyright-text">&copy; 2025 NARENDRA REDDY MERUVA. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
